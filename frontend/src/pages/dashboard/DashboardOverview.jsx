@@ -21,10 +21,38 @@ const DashboardOverview = () => {
     fetchStats();
   }, []);
 
+  // const fetchStats = async () => {
+  //   try {
+  //     const [products, enquiries] = await Promise.all([
+  //       api.get("/products?limit=1000"),
+  //       api.get("/enquiries"),
+  //     ]);
+
+  //     const activeDiscounts = products.data.filter(
+  //       (p) => p.discount && p.discount.active,
+  //     ).length;
+  //     const lowStock = products.data.filter(
+  //       (p) => p.inventory && p.inventory.quantity < 10,
+  //     ).length;
+
+  //     setStats({
+  //       totalProducts: products.data.length,
+  //       activeDiscounts,
+  //       totalEnquiries: enquiries.data.length,
+  //       lowStockProducts: lowStock,
+  //     });
+  //   } catch (error) {
+  //     console.error("Failed to fetch stats:", error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+  // Change this section in your DashboardOverview.jsx
   const fetchStats = async () => {
     try {
       const [products, enquiries] = await Promise.all([
-        api.get("/products?limit=1000"),
+        // FIX: Changed limit to 500 to satisfy backend validation
+        api.get("/products?limit=500&include_inactive=true"),
         api.get("/enquiries"),
       ]);
 
@@ -42,6 +70,7 @@ const DashboardOverview = () => {
         lowStockProducts: lowStock,
       });
     } catch (error) {
+      // This was showing the 422 error in your console
       console.error("Failed to fetch stats:", error);
     } finally {
       setLoading(false);
@@ -151,6 +180,6 @@ const DashboardOverview = () => {
       </div>
     </div>
   );
-};
+};;
 
 export default DashboardOverview;
