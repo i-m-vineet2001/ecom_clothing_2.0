@@ -1,1 +1,80 @@
-[]
+[
+  {
+    "id": "5bb19454-3f15-4b8b-8b33-902159e0da46",
+    "title": "Kurta",
+    "description": "best kurta",
+    "base_price": 1000.0,
+    "active": true,
+    "sku": "SKU-001",
+    "category_id": null,
+    "default_whatsapp_number_id": "c4ecea8e-7e4d-4b38-b80a-b62441676975",
+    "created_by": "247c8621-6ef0-456c-b6f5-95a4c71d99ff",
+    "created_at": "2026-02-27T09:38:48.148208+00:00",
+    "updated_at": "2026-02-27T15:52:29.912332+00:00"
+  },
+  {
+    "id": "a1b2c3d4-e5f6-4a5b-9c9d-0e1f2a3b4c5d",
+    "title": "Banarsi Silk",
+    "description": "Premium hand-loomed silk with golden zari.",
+    "base_price": 18000.0,
+    "active": true,
+    "sku": "SKU-002",
+    "category_id": "cat-001",
+    "default_whatsapp_number_id": "c4ecea8e-7e4d-4b38-b80a-b62441676975",
+    "created_by": "247c8621-6ef0-456c-b6f5-95a4c71d99ff",
+    "created_at": "2026-02-27T09:40:12.123456+00:00",
+    "updated_at": "2026-02-27T15:52:22.198039+00:00"
+  },
+  {
+    "id": "b2c3d4e5-f6a7-4b5c-9d0e-1f2a3b4c5d6e",
+    "title": "Tissue Silk",
+    "description": "Elegant Tissue silk with metallic sheen.",
+    "base_price": 20000.0,
+    "active": true,
+    "sku": "SKU-003",
+    "category_id": "cat-001",
+    "default_whatsapp_number_id": "c4ecea8e-7e4d-4b38-b80a-b62441676975",
+    "created_by": "247c8621-6ef0-456c-b6f5-95a4c71d99ff",
+    "created_at": "2026-02-27T09:45:30.987654+00:00",
+    "updated_at": "2026-02-27T15:52:13.212120+00:00"
+  },
+  {
+    "id": "51cc55c7-32c3-4df8-bb2a-3f17c306dc19",
+    "title": "Bandha Silk",
+    "description": "Sambulpuri gem",
+    "base_price": 14000.0,
+    "active": true,
+    "sku": "BANDHA-001",
+    "category_id": null,
+    "default_whatsapp_number_id": null,
+    "created_by": "247c8621-6ef0-456c-b6f5-95a4c71d99ff",
+    "created_at": "2026-02-27 13:48:35.606932+00:00",
+    "updated_at": "2026-02-27T15:52:31.993651+00:00"
+  },
+  {
+    "id": "716bfc71-90d0-4eab-b89c-44460edbd98b",
+    "title": "Jute Saree",
+    "description": "from Tribal",
+    "base_price": 5000.0,
+    "active": true,
+    "sku": "JUTE-001",
+    "category_id": null,
+    "default_whatsapp_number_id": null,
+    "created_by": "247c8621-6ef0-456c-b6f5-95a4c71d99ff",
+    "created_at": "2026-02-27 14:34:00.674709+00:00",
+    "updated_at": "2026-02-27T15:52:31.213457+00:00"
+  },
+  {
+    "id": "9145194b-2692-416c-b04e-87cd38e44ee6",
+    "title": "kanjivaram saree",
+    "description": "Kanjivaram (or Kanchipuram) sarees are opulent South Indian silk sarees from Tamil Nadu, renowned for their heavy, durable Mulberry silk, vibrant contrast borders, and intricate gold zari work",
+    "base_price": 6000.0,
+    "active": true,
+    "sku": "KANJI-001",
+    "category_id": "af80f016-464e-4e4b-ae72-3f6c39df5598",
+    "default_whatsapp_number_id": null,
+    "created_by": "247c8621-6ef0-456c-b6f5-95a4c71d99ff",
+    "created_at": "2026-02-27 14:57:10.429418+00:00",
+    "updated_at": "2026-02-27T15:52:30.596497+00:00"
+  }
+]

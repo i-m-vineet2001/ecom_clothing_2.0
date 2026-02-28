@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "id": "cat-001",
+    "name": "Silk Sarees",
+    "slug": "silk-sarees",
+    "description": "Premium handwoven silk collection including Banarsi and Tissue silk.",
+    "image_url": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400",
+    "parent_id": null,
+    "created_at": "2026-02-27T09:00:00+00:00"
+  },
+  {
+    "id": "cat-002",
+    "name": "Banarsi Collection",
+    "slug": "banarsi-collection",
+    "description": "Authentic Banarsi weaves and patterns.",
+    "image_url": "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=400",
+    "parent_id": "cat-001",
+    "created_at": "2026-02-27T09:10:00+00:00"
+  },
+  {
+    "id": "cat-003",
+    "name": "Cotton Sarees",
+    "slug": "cotton-sarees",
+    "description": "Lightweight and breathable cotton sarees for daily wear.",
+    "image_url": null,
+    "parent_id": null,
+    "created_at": "2026-02-27T10:00:00+00:00"
+  },
+  {
+    "id": "af80f016-464e-4e4b-ae72-3f6c39df5598",
+    "name": "kanjivaram saree ",
+    "description": "Authentic Kanjivaram sarees, handwoven by skilled artisans in Kanchipuram, Tamil Nadu, are crafted from high-quality mulberry silk for superior weight, longevity, and rich texture. They feature contrasting borders and pallu woven separately in different colors, intricate genuine zari work (silk thread dipped in silver and gold), and traditional motifs like peacocks, elephants, parrots, checks (kottadi), and temple-style zigzag borders. \u2014 Janardhana Silk House +5",
+    "image_url": "https://in.pinterest.com/pin/653725702144538333/",
+    "slug": "kanjivaram-saree",
+    "parent_id": null,
+    "created_at": "2026-02-27 14:59:41.099970+00:00"
+  }
+]
