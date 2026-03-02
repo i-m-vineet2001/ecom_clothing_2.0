@@ -4,8 +4,13 @@ dist/
 dist-ssr/
 *.local
 .eslintcache
+# Vite & Build Tools
+stats.html
+*.log
+.vite/
+.turbo/
 
-# Shadcn/UI specific (if you customize the registry)
+# Shadcn/UI specific
 .shotgun/
 
 # --- Backend (FastAPI + Python) ---
@@ -35,11 +40,11 @@ MANIFEST
 
 # --- Environment & Secrets ---
 .env
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*.local
 .env.local
 .flaskenv
+*.pem
+*.key
 
 # --- IDE & OS ---
 .vscode/
