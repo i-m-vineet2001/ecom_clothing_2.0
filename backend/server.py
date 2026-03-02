@@ -22,6 +22,9 @@ import bcrypt
 from jose import jwt, JWTError
 import phonenumbers
 from phonenumbers import NumberParseException
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / ".env")
@@ -1197,8 +1200,8 @@ async def mark_feedback_read(
         raise HTTPException(404, "Feedback not found")
 
     updated = _update_one(FEEDBACK_FILE, {"id": feedback_id}, {"is_read": True})
-    return Feedback(**updated)
 
+    return Feedback(**updated)
 
 @api_router.delete("/feedback/{feedback_id}")
 async def delete_feedback(
