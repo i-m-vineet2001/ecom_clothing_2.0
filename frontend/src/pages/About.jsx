@@ -52,9 +52,9 @@ const About = () => {
             </p>
             <div className="bg-[#F2F0EB] p-6 rounded-md">
               <p className="text-gray-700">
-                <strong>WhatsApp:</strong> +91 98765 43210
+                <strong>WhatsApp:</strong> <button onClick={() => window.open("https://wa.me/917735813913")} className="hover:underline">+91 77358***13913</button>
                 <br />
-                <strong>Email:</strong> info@gmbastralaya.com
+                <strong>Email:</strong> <button onClick={() => window.open("mailto:info@gmbastralaya.com")} className="hover:underline">info@gmbastralaya.com</button>
               </p>
             </div>
           </div>
