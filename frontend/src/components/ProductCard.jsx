@@ -220,7 +220,7 @@ import {
   maskPhoneNumber,
   generateWhatsAppLink,
 } from "../lib/utils";
-import api from "../lib/api";
+import api from "../lib/api.jsx";
 import { toast } from "sonner";
 import { useAuth } from "../contexts/AuthContext";
 

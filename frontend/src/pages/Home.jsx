@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ProductCard from "../components/ProductCard";
-import api from "../lib/api";
+import api from "../lib/api.jsx";
 
 const Home = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);

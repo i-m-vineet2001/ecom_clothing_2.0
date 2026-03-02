@@ -10,7 +10,7 @@ import {
   ExternalLink,
   RefreshCw,
 } from "lucide-react";
-import api from "../../lib/api";
+import api from "../../lib/api.jsx";
 import { toast } from "sonner";
 
 // ── Star display ──────────────────────────────────────────────────────────────

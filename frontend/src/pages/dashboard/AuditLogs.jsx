@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ShieldCheck, Search } from "lucide-react";
 import { Input } from "../../components/ui/input";
-import api from "../../lib/api";
+import api from "../../lib/api.jsx";
 import { toast } from "sonner";
 
 const ACTION_STYLES = {

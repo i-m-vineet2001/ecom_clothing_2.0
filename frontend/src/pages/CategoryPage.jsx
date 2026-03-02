@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
-import api from "../lib/api";
+import api from "../lib/api.jsx";
 import {
   Search,
   SlidersHorizontal,

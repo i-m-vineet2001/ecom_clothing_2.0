@@ -29,7 +29,7 @@ import {
   X,
 } from "lucide-react";
 import { formatPrice } from "../../lib/utils";
-import api from "../../lib/api";
+import api from "../../lib/api.jsx";
 import { toast } from "sonner";
 import ImageUploader from "../../components/ImageUploader";
 

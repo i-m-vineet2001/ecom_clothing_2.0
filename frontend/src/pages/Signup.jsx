@@ -263,7 +263,7 @@ import {
   CardTitle,
 } from "../components/ui/card";
 import { toast } from "sonner";
-import api from "../lib/api";
+import api from "../lib/api.jsx";
 
 const Signup = () => {
   const [formData, setFormData] = useState({

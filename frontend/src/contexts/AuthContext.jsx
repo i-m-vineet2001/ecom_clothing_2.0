@@ -52,7 +52,7 @@
 // };
 
 import React, { createContext, useContext, useState, useEffect } from "react";
-import api from "../lib/api";
+import api from "../lib/api.jsx";
 
 const AuthContext = createContext(null);
 

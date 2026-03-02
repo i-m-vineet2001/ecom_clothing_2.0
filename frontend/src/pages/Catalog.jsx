@@ -380,7 +380,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import ProductCard from "../components/ProductCard";
-import api from "../lib/api";
+import api from "../lib/api.jsx";
 import { Search, Filter } from "lucide-react";
 
 const Catalog = () => {

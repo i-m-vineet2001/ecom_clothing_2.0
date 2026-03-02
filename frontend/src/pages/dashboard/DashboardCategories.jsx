@@ -19,7 +19,7 @@ import {
   TableRow,
 } from "../../components/ui/table";
 import { Plus, Edit, Trash2, Layers } from "lucide-react";
-import api from "../../lib/api";
+import api from "../../lib/api.jsx";
 import ImageUploader from "../../components/ImageUploader";
 import { toast } from "sonner";
 

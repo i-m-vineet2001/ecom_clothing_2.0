@@ -197,7 +197,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, Outlet, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import api from "../lib/api";
+import api from "../lib/api.jsx";
 import { Button } from "../components/ui/button";
 import {
   Package,

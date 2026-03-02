@@ -32,7 +32,7 @@ import {
   Trash2,
 } from "lucide-react";
 import { Button } from "./ui/button";
-import api from "../lib/api";
+import api from "../lib/api.jsx";
 import { toast } from "sonner";
 
 // ── Individual file progress item ─────────────────────────────────────────────

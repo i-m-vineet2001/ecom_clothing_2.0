@@ -17,7 +17,7 @@ import {
   DialogTitle,
 } from "../../components/ui/dialog";
 import { toast } from "sonner";
-import api from "../../lib/api";
+import api from "../../lib/api.jsx";
 import { useAuth } from "../../contexts/AuthContext";
 import {
   Shield,

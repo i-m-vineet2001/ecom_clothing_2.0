@@ -9,7 +9,7 @@ import {
 } from "../../components/ui/table";
 import { Phone, ExternalLink, Search, MessageSquare } from "lucide-react";
 import { Input } from "../../components/ui/input";
-import api from "../../lib/api";
+import api from "../../lib/api.jsx";
 import { toast } from "sonner";
 
 const Enquiries = () => {
