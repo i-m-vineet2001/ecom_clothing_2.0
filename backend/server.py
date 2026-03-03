@@ -32,6 +32,27 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # ══════════════════════════════════════════════════════
+# CLOUDINARY CONFIG  ← reads from .env or Render env vars
+# Required vars: CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET
+# ══════════════════════════════════════════════════════
+_cld_cloud = os.environ.get("CLOUDINARY_CLOUD_NAME", "")
+_cld_key = os.environ.get("CLOUDINARY_API_KEY", "")
+_cld_secret = os.environ.get("CLOUDINARY_API_SECRET", "")
+
+if _cld_cloud and _cld_key and _cld_secret:
+    cloudinary.config(
+        cloud_name=_cld_cloud,
+        api_key=_cld_key,
+        api_secret=_cld_secret,
+        secure=True,
+    )
+    logger.info(f"Cloudinary configured: cloud={_cld_cloud}")
+else:
+    logger.warning(
+        "Cloudinary env vars missing! Image uploads will fail. Set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET"
+    )
+
+# ══════════════════════════════════════════════════════
 # MONGODB — commented out, restore when ready
 # ══════════════════════════════════════════════════════
 # from motor.motor_asyncio import AsyncIOMotorClient
@@ -51,10 +72,12 @@ logger = logging.getLogger(__name__)
 
 # ══════════════════════════════════════════════════════
 # FILE-BASED STORAGE
+# On Render: add a Disk mounted at /data and set env var DATA_DIR=/data
+# Locally: defaults to ./data next to server.py
 # ══════════════════════════════════════════════════════
-DATA_DIR = ROOT_DIR / "data"
+DATA_DIR = Path(os.environ.get("DATA_DIR", str(ROOT_DIR / "data")))
 UPLOADS_DIR = ROOT_DIR / "uploads"
-DATA_DIR.mkdir(exist_ok=True)
+DATA_DIR.mkdir(parents=True, exist_ok=True)
 UPLOADS_DIR.mkdir(exist_ok=True)
 
 # userlogs.json stores users as a standard JSON array
@@ -68,6 +91,7 @@ WHATSAPP_FILE = DATA_DIR / "whatsapp.json"
 ENQUIRIES_FILE = DATA_DIR / "enquiries.json"
 AUDIT_FILE = DATA_DIR / "audit_logs.json"
 FEEDBACK_FILE = DATA_DIR / "feedback.json"
+
 
 # ── Generic JSON helpers ──────────────────────────────
 def _read(path: Path) -> list:
@@ -414,6 +438,7 @@ class AuditLog(BaseModel):
     after: Optional[dict] = None
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
+
 class Feedback(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     name: str
@@ -431,6 +456,8 @@ class FeedbackCreate(BaseModel):
     rating: int
     message: str
     page_url: str
+
+
 # ══════════════════════════════════════════════════════
 # AUTH HELPERS
 # ══════════════════════════════════════════════════════
@@ -995,6 +1022,7 @@ async def get_whatsapp_numbers(
 ):
     return [WhatsappNumber(**d) for d in _read(WHATSAPP_FILE)]
 
+
 @api_router.get("/whatsapp-default", response_model=WhatsappNumber)
 async def get_default_whatsapp():
     doc = next(
@@ -1010,6 +1038,7 @@ async def get_default_whatsapp():
         raise HTTPException(404, "Default WhatsApp not found")
 
     return WhatsappNumber(**doc)
+
 
 @api_router.post("/whatsapp-numbers", response_model=WhatsappNumber)
 async def create_whatsapp_number(
@@ -1167,6 +1196,7 @@ async def update_user_role(
     )
     return UserResponse(**target)
 
+
 # ══════════════════════════════════════════════════════
 # FEEDBACK
 # ══════════════════════════════════════════════════════
@@ -1203,6 +1233,7 @@ async def mark_feedback_read(
 
     return Feedback(**updated)
 
+
 @api_router.delete("/feedback/{feedback_id}")
 async def delete_feedback(
     feedback_id: str, current_user: User = Depends(require_role(["admin"]))
@@ -1210,6 +1241,7 @@ async def delete_feedback(
     if not _delete_one(FEEDBACK_FILE, {"id": feedback_id}):
         raise HTTPException(404, "Feedback not found")
     return {"message": "Feedback deleted"}
+
 
 # ══════════════════════════════════════════════════════
 # AUDIT LOGS
@@ -1264,9 +1296,8 @@ async def init_data():
 
 
 # ══════════════════════════════════════════════════════
-# APP SETUP
+# APP SETUP  — CORS must be added BEFORE including routers
 # ══════════════════════════════════════════════════════
-app.include_router(api_router)
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
@@ -1274,6 +1305,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.include_router(api_router)
 
 
 @app.on_event("startup")
