@@ -1301,7 +1301,12 @@ async def init_data():
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://gm-bastralaya.vercel.app",
+        "http://localhost:3000",
+        "http://localhost:5173",
+        "http://localhost:5174",
+    ],
     allow_methods=["*"],
     allow_headers=["*"],
 )
