@@ -24,6 +24,9 @@ import Users from "./pages/dashboard/Users.jsx";
 import Inventory from "./pages/dashboard/Inventory.jsx";
 import Feedback from "./pages/dashboard/Feedback.jsx";
 import Settings from "./pages/dashboard/Settings.jsx";
+import HealthCheck from "./pages/dashboard/HealthCheck.jsx";
+
+
 
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const { user, loading } = useAuth();
@@ -135,6 +138,7 @@ function App() {
             <Route path="inventory" element={<Inventory />} />
             <Route path="feedback" element={<Feedback />} />
             <Route path="settings" element={<Settings />} />
+            <Route path="health" element={<HealthCheck />} />
           </Route>
         </Routes>
       </BrowserRouter>
