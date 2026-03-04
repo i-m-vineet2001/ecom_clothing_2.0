@@ -305,6 +305,12 @@ const Dashboard = () => {
       label: "Audit Logs",
       roles: ["admin"],
     },
+    {
+      path: "/dashboard/health",
+      icon: Home,
+      label: "Health Check",
+      roles: ["admin"],
+    }
   ];
 
   const filteredMenuItems = menuItems.filter((item) =>
